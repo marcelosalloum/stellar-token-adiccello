@@ -1,0 +1,16 @@
+[package]
+name = "mycoin"
+version = "0.0.1"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = "22.0.6"
+openzeppelin-fungible-token = { path = "./token/fungible" }
+
+[dev-dependencies]
+soroban-sdk = { version = "22.0.6", features = ["testutils"] }
