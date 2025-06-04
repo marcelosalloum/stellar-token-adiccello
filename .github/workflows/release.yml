@@ -25,7 +25,7 @@ jobs:
       id: attestation
       with:
         subject-name: token-contract
-        subject-path: target/wasm32v1-none/release/token.wasm
+        subject-path: target/wasm32v1-none/release/mycoin.wasm
 
     - name: Display Attestation Info
       run: |
@@ -35,8 +35,8 @@ jobs:
     - name: Upload to Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: token.wasm
-        path: target/wasm32v1-none/release/token.wasm
+        name: mycoin.wasm
+        path: target/wasm32v1-none/release/mycoin.wasm
 
     - name: Setup CLI for Testnet
       run: stellar network use testnet
@@ -49,5 +49,5 @@ jobs:
 
     - name: Install Contract with WASM Hash to TestNet (Verifiable)
       run: |
-        WASM_HASH=$(stellar contract install --wasm target/wasm32v1-none/release/token.wasm)
+        WASM_HASH=$(stellar contract install --wasm target/wasm32v1-none/release/mycoin.wasm)
         echo "Contract installed with WASM hash: $WASM_HASH"
