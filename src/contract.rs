@@ -3,13 +3,13 @@
        Using OpenZeppelin Libraries
 
         .------------------------.
-    }=>/  __------------------__  \ 
+    }=>/  __------------------__  \
       /       Soroban SEP41        \
      }=>  Stellar ♥️ OpenZeppelin    )
       \   __     v.0.0.1      __   /
-    }=>\    ------------------    / 
-        '------------------------' 
-                  `-----'   
+    }=>\    ------------------    /
+        '------------------------'
+                  `-----'
 */
 
 use openzeppelin_fungible_token::{
@@ -38,8 +38,8 @@ impl MyCoinContract {
         fungible::metadata::set_metadata(
             e,
             18,
-            String::from_str(e, "My Coin"),
-            String::from_str(e, "MC"),
+            String::from_str(e, "Adiccello"),
+            String::from_str(e, "ADL"),
         );
         e.storage().instance().set(&OWNER, &owner);
         e.storage().instance().set(&CAP, &cap);
@@ -99,7 +99,11 @@ impl FungibleBurnable for MyCoinContract {
 #[contractimpl]
 impl FungibleMintable for MyCoinContract {
     fn mint(e: &Env, account: Address, amount: i128) {
-        let owner: Address = e.storage().instance().get(&OWNER).expect("owner should be set");
+        let owner: Address = e
+            .storage()
+            .instance()
+            .get(&OWNER)
+            .expect("owner should be set");
         owner.require_auth();
         let cap: i128 = e.storage().instance().get(&CAP).expect("cap should be set");
         let current_total_supply = fungible::total_supply(e);

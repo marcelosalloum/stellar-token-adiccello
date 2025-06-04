@@ -20,8 +20,8 @@ fn initial_state() {
     client.mint(&owner, &1000);
     assert_eq!(client.total_supply(), 1000);
     assert_eq!(client.balance(&owner), 1000);
-    assert_eq!(client.symbol(), String::from_str(&e, "MC"));
-    assert_eq!(client.name(), String::from_str(&e, "My Coin"));
+    assert_eq!(client.symbol(), String::from_str(&e, "ADT"));
+    assert_eq!(client.name(), String::from_str(&e, "Adiccello"));
     assert_eq!(client.decimals(), 18);
 }
 
@@ -76,4 +76,3 @@ fn burn_works() {
     assert_eq!(client.total_supply(), 800);
     assert_eq!(client.balance(&owner), 800);
 }
-
